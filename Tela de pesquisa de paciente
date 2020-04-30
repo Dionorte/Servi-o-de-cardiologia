@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(HomePage());
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => new _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String appTitle = "Buscar Paciente";
+
+  bool isSearchEnabled = false;
+
+  _switchSearchBarState(){
+    setState(() {
+      isSearchEnabled = !isSearchEnabled;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+            elevation: 1,
+            backgroundColor: Color(0xff1565C0),
+            title: !isSearchEnabled ? Text(appTitle) : TextField(
+              style: TextStyle(
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                  prefixIcon: Icon(Icons.search,color: Colors.white),
+                  hintText: "Buscar cadastro de paciente",
+                  hintStyle: TextStyle(color: Colors.blue)
+              ),
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(isSearchEnabled ? Icons.close : Icons.search),
+                onPressed: _switchSearchBarState,
+              ),
+          IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.account_circle),
+              ),
+               IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.account_circle),
+                 )
+              
+            ]
+        ),
+      ),
+    );
+  }
+}
