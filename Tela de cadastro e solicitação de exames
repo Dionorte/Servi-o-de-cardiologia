@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(new MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Tela de solicitação de exame',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => new _LoginPageState();
+}
+class _LoginPageState extends State<LoginPage> {
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: _buildBar(context),
+      body: new Container(
+        padding: EdgeInsets.all(8.0),
+        child: new Column(
+          children: <Widget>[
+            _buildTextFields(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBar(BuildContext context) {
+    return new AppBar(
+      title: new Text("Solicitação de Exame"),
+      centerTitle: true,
+    );
+  }
+
+
+  Widget _buildTextFields() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Container(
+            
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Nome do paciente',
+              ),
+            ),
+          ),
+         Container(
+           padding: const EdgeInsets.only(bottom: 20),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Idade do paciente'
+              ),
+              obscureText: true,
+            ),
+          ),
+          
+          Container(
+           padding: const EdgeInsets.only(bottom: 20),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Informe o sexo do paciente'
+              ),
+              obscureText: true,
+          ),
+            ),
+          
+          Container(
+           padding: const EdgeInsets.only(bottom: 20),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Informe a cor do paciente'
+              ),
+              obscureText: true,
+          ),
+            ),
+          
+            Container(
+           padding: const EdgeInsets.only(bottom: 20),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Nome do exame'
+              ),
+              obscureText: true,
+                  
+          ),
+            ),
+          Container(
+           padding: const EdgeInsets.only(bottom: 8),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Data prevista do exame e recoomendações'
+              ),
+              obscureText: true,
+          ),
+            ),
+          Column(
+            children: <Widget>[
+            RaisedButton(
+              child:  Text('Solicitar exame'),
+              onPressed: (){},
+              color: Colors.blue,
+              textColor: Colors.white,
+            ),
+             
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+}
